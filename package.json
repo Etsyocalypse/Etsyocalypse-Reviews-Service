@@ -1,0 +1,36 @@
+{
+  "name": "marc-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "build": "webpack -p",
+    "watch": "webpack -w",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Etsyocalypse/Marc-service.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Etsyocalypse/Marc-service/issues"
+  },
+  "homepage": "https://github.com/Etsyocalypse/Marc-service#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "prop-types": "^15.6.2",
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "path": "^0.12.7",
+    "webpack": "^3.8.1"
+  }
+}
