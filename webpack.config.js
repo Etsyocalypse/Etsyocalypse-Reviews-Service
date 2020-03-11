@@ -1,25 +1,19 @@
-var webpack = require('webpack')
-
+const path = require('path');
+const SRC_DIR = path.join(__dirname, '/client');
+const DIST_DIR = path.join(__dirname, '/dist');
 module.exports = {
-  entry: './app/index.js',
+  entry: `${SRC_DIR}/index.js`,
   output: {
-    path: __dirname + '/public',
-    publicPath: 'http://localhost:8081/public/',
-    filename: 'bundle.js',
-    libraryTarget: 'amd'
-  },
-  module: {
-    loaders: [
+  filename: 'bundle.js',
+  path: DIST_DIR
+},
+  module : {
+    rules : [
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader'
-      },
+        test : /\.js?/,
+        include : SRC_DIR,
+        loader : 'babel-loader',
+      }
     ]
-  },
-  externals: {
-    'react': 'react',
-    'react-dom': 'react-dom',
-    'prop-types': 'prop-types'
   }
-}
+};
