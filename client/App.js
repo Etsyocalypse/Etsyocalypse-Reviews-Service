@@ -6,9 +6,25 @@ export default class Reviews extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            reviewData: Dummydata.Dummydata,
+            reviewData: Dummydata.itemReviewData,
             tab: 'item'
         }
+        this.handleItemReviewTabClick = this.handleItemReviewTabClick.bind(this);
+        this.handleShopReviewTabClick = this.handleShopReviewTabClick.bind(this);
+    }
+
+    handleItemReviewTabClick() {
+        this.setState({
+            reviewData: Dummydata.itemReviewData,
+            tab: 'item'
+        });
+    }
+
+    handleShopReviewTabClick() {
+        this.setState({
+            reviewData: Dummydata.shopReviewData,
+            tab: 'shop'
+        })
     }
 
     render() {
@@ -23,8 +39,8 @@ export default class Reviews extends React.Component {
                     </div>
                 </div>
                 <div className="review tabs">
-                    <button className="tab">Reviews for this item</button>
-                    <button className="tab">Reviews for this shop</button>
+                    <button className="tab" onClick={this.handleItemReviewTabClick}>Reviews for this item</button>
+                    <button className="tab" onClick={this.handleShopReviewTabClick}>Reviews for this shop</button>
                 </div>
                 <div className="review reviewList" ><ReviewList reviewData={this.state.reviewData} tab={this.state.tab}/></div>
                 <div className="review pictures">
