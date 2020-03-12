@@ -9,7 +9,9 @@ const itemReviewData = [
         text: 'This product is great.',
         imageURL: '',
         item: '',
-        itemImageURL: ''
+        itemImageURL: '',
+        productId: '',
+        shopId: ''
     },
     {
         id: 2,
@@ -21,7 +23,9 @@ const itemReviewData = [
         text: 'The best thing ever.',
         imageURL: '',
         item: '',
-        itemImageURL: ''
+        itemImageURL: '',
+        productId: '',
+        shopId: ''
     },
     {
         id: 3,
@@ -33,13 +37,29 @@ const itemReviewData = [
         text: 'I love this product.',
         imageURL: '',
         item: '',
-        itemImageURL: ''
+        itemImageURL: '',
+        productId: '',
+        shopId: ''
+    },
+    {
+        id: 4,
+        avatar: '',
+        type: 'item',
+        reviewer: 'Jimmy Dean',
+        date: 'Jan 23, 2020',
+        star_rating: 3,
+        text: 'Meh.',
+        imageURL: '',
+        item: '',
+        itemImageURL: '',
+        productId: '',
+        shopId: ''
     }
 ];
 
 const shopReviewData = [
     {
-        id: 4,
+        id: 1,
         avatar: '',
         type: 'shop',
         reviewer: 'Tom Cruise',
@@ -51,7 +71,7 @@ const shopReviewData = [
         itemImageURL: ''
     },
     {
-        id: 5,
+        id: 2,
         avatar: '',
         type: 'shop',
         reviewer: 'Rick Grimes',
@@ -63,13 +83,37 @@ const shopReviewData = [
         itemImageURL: ''
     },
     {
-        id: 6,
+        id: 3,
         avatar: '',
         type: 'shop',
         reviewer: 'Daryl Dixon',
         date: 'Dec 1, 2019',
         star_rating: 4,
         text: 'Pretty decent shop',
+        imageURL: '',
+        item: '',
+        itemImageURL: ''
+    },
+    {
+        id: 4,
+        avatar: '',
+        type: 'shop',
+        reviewer: 'Karen',
+        date: 'Dec 1, 2019',
+        star_rating: 1,
+        text: 'The service was unacceptable. I would like to speak to the manager.',
+        imageURL: '',
+        item: '',
+        itemImageURL: ''
+    },
+    {
+        id: 5,
+        avatar: '',
+        type: 'shop',
+        reviewer: 'John Smith',
+        date: 'Jan 1, 2019',
+        star_rating: 5,
+        text: 'I like this shop.',
         imageURL: '',
         item: '',
         itemImageURL: ''

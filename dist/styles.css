@@ -1,0 +1,52 @@
+.ratings {
+    overflow: auto;
+    width: 100%;
+    margin: 0 18px 12px 0;
+}
+
+.shop {
+    float: left;
+    margin: 0 24px 0 0;
+}
+
+.review-container {
+    margin: 0 0 24px;
+    padding: 9px;
+}
+
+.topline {
+    vertical-align: middle;
+    display: inline;
+    /* float: left;
+    width: 100%; */
+    margin: 0 0 6px;
+}
+
+.review-body {
+    margin: 0 0 0 48px;
+}
+
+.star-text {
+    margin: 0 48px 0 0;
+}
+
+.avatar-img {
+    width: 36px;
+    height: 36px;
+}
+
+.avatar {
+    float: left;
+    width: 36px;
+    height: 36px;
+    margin: 0 12px 0 0;
+}
+
+.starRating {
+    margin: 0 0 6px;
+}
+
+.reviewNum {
+    margin: 0 0 0 12px;
+    padding: 6px 9px;
+}
