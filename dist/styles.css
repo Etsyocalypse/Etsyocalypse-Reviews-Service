@@ -26,7 +26,11 @@ body {
     margin: 0 0 6px;
     font-weight: 300;
     font-size: 13px;
-    color:#595955;
+    color:#595959;
+}
+
+.text {
+    color: #222222;
 }
 
 .rating-headers {
@@ -44,6 +48,8 @@ body {
 }
 
 .shopReviewNum {
+    font-weight: 300;
+    letter-spacing: .35px;
     font-size: 26px;
     line-height: 32px;
     margin: 0;
@@ -55,6 +61,8 @@ body {
 
 .star-text {
     margin: 0 48px 0 0;
+    max-width: 100%;
+    min-width: 0;
 }
 
 .avatar-img {
@@ -67,6 +75,7 @@ body {
     width: 36px;
     height: 36px;
     margin: 0 12px 0 0;
+    font-size: 36px;
 }
 
 .starRating {
