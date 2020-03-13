@@ -1,14 +1,17 @@
 body {
     font-family: "Graphik Webfont","Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+    color: #222;
+    font-size: 14px;
+    line-height: 1.4;
 }
 
-.ratings {
+.review-ratings {
     overflow: auto;
     width: 100%;
     margin: 0 18px 12px 0;
 }
 
-.shop {
+.review-shop {
     float: left;
     margin: 0 24px 0 0;
 }
@@ -18,7 +21,7 @@ body {
     padding: 9px;
 }
 
-.topline {
+.review-topline {
     vertical-align: middle;
     display: inline;
     /* float: left;
@@ -29,25 +32,26 @@ body {
     color:#595959;
 }
 
-.text {
+.review-text {
     color: #222222;
+    font-size: 16px;
 }
 
-.rating-headers {
+.review-rating-headers {
     font-weight: 300;
     font-size: 13px;
     color:#595955;
 }
 
-.shop-rating {
+.review-shop-rating {
     margin: 0 0 12px 0;
 }
 
-.shop-review {
+.review-shop-review {
     margin: 0 0 6px 0;
 }
 
-.shopReviewNum {
+.review-shopReviewNum {
     font-weight: 300;
     letter-spacing: .35px;
     font-size: 26px;
@@ -59,18 +63,18 @@ body {
     margin: 0 0 0 48px;
 }
 
-.star-text {
+.review-star-text {
     margin: 0 48px 0 0;
     max-width: 100%;
     min-width: 0;
 }
 
-.avatar-img {
+.review-avatar-img {
     width: 36px;
     height: 36px;
 }
 
-.avatar {
+.review-avatar {
     float: left;
     width: 36px;
     height: 36px;
@@ -78,11 +82,11 @@ body {
     font-size: 36px;
 }
 
-.starRating {
+.review-starRating {
     margin: 0 0 6px;
 }
 
-.reviewNum {
+.review-reviewNum {
     margin: 0 0 0 12px;
     padding: 6px 9px;
     background-color: #EAEAEA;
@@ -98,12 +102,12 @@ body {
     display: block;
 }
 
-#tabs {
+#review-tabs {
     display: flex;
     border-bottom: 2px solid rgba(34, 34, 34, 0.15);
 }
 
-#tabItem {
+#review-tabItem {
     padding: 12px 0;
     margin: 0 12px 0 0;
     border: none;
@@ -120,7 +124,7 @@ body {
     font-size: 16px;
 }
 
-#tabShop {
+#review-tabShop {
     padding: 12px 0;
     margin: 0 0 0 12px;
     border: none;
@@ -137,7 +141,7 @@ body {
     font-size: 16px;
 }
 
-#tabs .tabAnimate::after {
+#review-tabs .review-tabAnimate::after {
     content: '';
     display: inline-block;
     position: absolute;
@@ -149,11 +153,44 @@ body {
     transition: width 200ms cubic-bezier(0.54, 0, 0.54, 1);
 }
 
-#tabs .tabAnimate:hover::after {
+#review-tabs .review-tabAnimate:hover::after {
     width: 100%;
 }
 
-#tabs .selectedTab {
+#review-tabs .review-selectedTab {
     bottom: -2px;
     border-bottom: 2px solid #222222;
+}
+
+.review-more {
+    display: none;
+}
+
+.review-txt-center {
+    text-align: center;
+}
+
+#review-more-btn {
+    color: #222222;
+    background: none;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    outline: none;
+    border-radius: 24px;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.5;
+    min-height: 48px;
+    min-width: 48px;
+    padding: 12px 18px;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    z-index: 10;
+}
+
+.review-pictures {
+    font-size: 16px;
 }

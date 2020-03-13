@@ -15,27 +15,39 @@ export default class Reviews extends React.Component {
         }
         this.handleItemReviewTabClick = this.handleItemReviewTabClick.bind(this);
         this.handleShopReviewTabClick = this.handleShopReviewTabClick.bind(this);
+        this.handleSeeMoreReviewsClick = this.handleSeeMoreReviewsClick.bind(this);
         this.calculateStarRatingAvg = this.calculateStarRatingAvg.bind(this);
     }
 
     handleItemReviewTabClick() {
-        let shopTab = document.getElementById('tabShop');
-        shopTab.classList.remove('selectedTab');
-        let itemTab = document.getElementById('tabItem');
-        itemTab.classList.add('selectedTab');
+        let shopTab = document.getElementById('review-tabShop');
+        shopTab.classList.remove('review-selectedTab');
+        let itemTab = document.getElementById('review-tabItem');
+        itemTab.classList.add('review-selectedTab');
         this.setState({
             tab: 'item'
         });
     }
 
     handleShopReviewTabClick() {
-        let itemTab = document.getElementById('tabItem');
-        itemTab.classList.remove('selectedTab');
-        let shopTab = document.getElementById('tabShop');
-        shopTab.classList.add('selectedTab');
+        let itemTab = document.getElementById('review-tabItem');
+        itemTab.classList.remove('review-selectedTab');
+        let shopTab = document.getElementById('review-tabShop');
+        shopTab.classList.add('review-selectedTab');
         this.setState({
             tab: 'shop'
         })
+    }
+
+    handleSeeMoreReviewsClick() {
+        let moreReviews = document.getElementsByClassName('review-more');
+        for (let i = 0; i < moreReviews.length; i++) {
+          moreReviews[i].classList.remove('review-more');
+        }
+        if (moreReviews.length < 20) {
+            let moreReviewsBtn = document.getElementById('review-more-btn');
+            moreReviewsBtn.classList.add('review-more');
+        }
     }
 
     // calculate star rating average
@@ -59,25 +71,25 @@ export default class Reviews extends React.Component {
 
     render() {
         return (
-            <div className="review main">
-                <div className="review ratings">
-                    <div className="review shop">
-                      <p className="review rating-headers shop-rating">Shop rating</p>
+            <div className="review-main">
+                <div className="review-ratings">
+                    <div className="review-shop">
+                      <p className="review-rating-headers review-shop-rating">Shop rating</p>
                       <ShopStars calcStars={this.calculateStarRatingAvg} shopReviewData={this.state.shopReviewData}/>
                     </div>
-                    <div className="review shop">
-                        <p className="review rating-headers shop-review">Total shop reviews</p>
-                        <p className="review shopReviewNum">{this.state.shopReviewData.length}</p>
+                    <div className="review-shop">
+                        <p className="review-rating-headers review-shop-review">Total shop reviews</p>
+                        <p className="review-shopReviewNum">{this.state.shopReviewData.length}</p>
                     </div>
                 </div>
                 <div id="review-tab-container">
-                    <div id="tabs">
-                        <button id="tabItem" className="tabAnimate" onClick={this.handleItemReviewTabClick}>Reviews for this item<span className="reviewNum">{this.state.itemReviewData.length}</span></button>
-                        <button id="tabShop" className="tabAnimate" onClick={this.handleShopReviewTabClick}>Reviews for this shop<span className="reviewNum">{this.state.shopReviewData.length}</span></button>
+                    <div id="review-tabs">
+                        <button id="review-tabItem" className="review-tabAnimate" onClick={this.handleItemReviewTabClick}>Reviews for this item<span className="review-reviewNum">{this.state.itemReviewData.length}</span></button>
+                        <button id="review-tabShop" className="review-tabAnimate" onClick={this.handleShopReviewTabClick}>Reviews for this shop<span className="review-reviewNum">{this.state.shopReviewData.length}</span></button>
                     </div>
                 </div>
-                <div className="review reviewList" ><ReviewList itemReviewData={this.state.itemReviewData} shopReviewData={this.state.shopReviewData} tab={this.state.tab}/></div>
-                <div className="review pictures">
+                <div className="review-reviewList" ><ReviewList handleSeeMoreReviewsClick={this.handleSeeMoreReviewsClick} itemReviewData={this.state.itemReviewData} shopReviewData={this.state.shopReviewData} tab={this.state.tab}/></div>
+                <div className="review-pictures">
                     <p>Photos from reviews</p>
                 </div>
             </div>
