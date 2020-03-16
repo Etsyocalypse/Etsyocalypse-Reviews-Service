@@ -7,7 +7,7 @@ const ReviewList = (props) => {
         return (
             <>
             {props.itemReviewData.map((rev, index) => (
-                        <div data-id={rev.id} key={index} className={`review-container ${index > 3 ? "review-more" : ""}`}>
+                        <div data-id={rev.id} key={index} className={`review-container ${index > 3 ? "review-hide" : ""}`}>
                             <div className="review-topline">
                                 <div className="review-avatar"><i className="fas fa-user-circle"></i></div>
                                 <p><a href="">{rev.reviewer}</a>&nbsp;&nbsp;{rev.date}</p>
@@ -27,7 +27,7 @@ const ReviewList = (props) => {
         return (
             <>
             {props.shopReviewData.map((rev, index) => (
-                <div data-id={rev.id} key={index} className={`review-container ${index > 3 ? "review-more" : ""}`}>
+                <div data-id={rev.id} key={index} className={`review-container ${index > 3 ? "review-hide" : ""}`}>
                     <div className="review-topline">
                         <div className="review-avatar"><i className="fas fa-user-circle"></i></div>
                         <p><a href="">{rev.reviewer}</a>&nbsp;&nbsp;{rev.date}</p>

@@ -1,3 +1,8 @@
+@keyframes bounce {
+    0%, 100% { box-shadow: transparent; }
+    50% { box-shadow: 0px 0px 0px 2px #EAEAEA; }
+}
+
 body {
     font-family: "Graphik Webfont","Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
     color: #222;
@@ -5,53 +10,51 @@ body {
     line-height: 1.4;
 }
 
-.review-ratings {
+#reviews .review-ratings {
     overflow: auto;
     width: 100%;
     margin: 0 18px 12px 0;
 }
 
-.review-shop {
+#reviews .review-shop {
     float: left;
     margin: 0 24px 0 0;
 }
 
-.review-container {
+#reviews .review-container {
     margin: 0 0 24px;
     padding: 9px;
 }
 
-.review-topline {
+#reviews .review-topline {
     vertical-align: middle;
     display: inline;
-    /* float: left;
-    width: 100%; */
     margin: 0 0 6px;
     font-weight: 300;
     font-size: 13px;
     color:#595959;
 }
 
-.review-text {
+#reviews .review-text {
     color: #222222;
     font-size: 16px;
 }
 
-.review-rating-headers {
+#reviews .review-rating-headers {
     font-weight: 300;
     font-size: 13px;
     color:#595955;
 }
 
-.review-shop-rating {
+#reviews .review-shop-rating {
     margin: 0 0 12px 0;
 }
 
-.review-shop-review {
+#reviews .review-shop-review {
     margin: 0 0 6px 0;
 }
 
-.review-shopReviewNum {
+#reviews .review-shopReviewNum {
     font-weight: 300;
     letter-spacing: .35px;
     font-size: 26px;
@@ -59,22 +62,22 @@ body {
     margin: 0;
 }
 
-.review-body {
+#reviews .review-body {
     margin: 0 0 0 48px;
 }
 
-.review-star-text {
+#reviews .review-star-text {
     margin: 0 48px 0 0;
     max-width: 100%;
     min-width: 0;
 }
 
-.review-avatar-img {
+#reviews .review-avatar-img {
     width: 36px;
     height: 36px;
 }
 
-.review-avatar {
+#reviews .review-avatar {
     float: left;
     width: 36px;
     height: 36px;
@@ -82,11 +85,11 @@ body {
     font-size: 36px;
 }
 
-.review-starRating {
+#reviews .review-starRating {
     margin: 0 0 6px;
 }
 
-.review-reviewNum {
+#reviews .review-reviewNum {
     margin: 0 0 0 12px;
     padding: 6px 9px;
     background-color: #EAEAEA;
@@ -97,17 +100,17 @@ body {
     text-align: center;
 }
 
-#review-tab-container {
+#reviews #review-tab-container {
     margin: 0 0 24px 0;
     display: block;
 }
 
-#review-tabs {
+#reviews #review-tabs {
     display: flex;
     border-bottom: 2px solid rgba(34, 34, 34, 0.15);
 }
 
-#review-tabItem {
+#reviews #review-tabItem {
     padding: 12px 0;
     margin: 0 12px 0 0;
     border: none;
@@ -124,7 +127,7 @@ body {
     font-size: 16px;
 }
 
-#review-tabShop {
+#reviews #review-tabShop {
     padding: 12px 0;
     margin: 0 0 0 12px;
     border: none;
@@ -141,7 +144,7 @@ body {
     font-size: 16px;
 }
 
-#review-tabs .review-tabAnimate::after {
+#reviews #review-tabs .review-tabAnimate::after {
     content: '';
     display: inline-block;
     position: absolute;
@@ -153,32 +156,30 @@ body {
     transition: width 200ms cubic-bezier(0.54, 0, 0.54, 1);
 }
 
-#review-tabs .review-tabAnimate:hover::after {
+#reviews #review-tabs .review-tabAnimate:hover::after {
     width: 100%;
 }
 
-#review-tabs .review-selectedTab {
+#reviews #review-tabs .review-selectedTab {
     bottom: -2px;
     border-bottom: 2px solid #222222;
 }
 
-.review-more {
-    display: none;
-}
-
-.review-txt-center {
+#reviews .review-txt-center {
     text-align: center;
 }
 
-#review-more-btn {
+#reviews #review-more-btn {
     color: #222222;
-    background: none;
+    background-image: linear-gradient(#EAEAEA,  #EAEAEA);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 0% 0%;
     border: none;
     font: inherit;
     cursor: pointer;
     outline: none;
     border-radius: 24px;
-    display: inline-block;
     font-size: 16px;
     font-weight: bold;
     line-height: 1.5;
@@ -188,9 +189,18 @@ body {
     position: relative;
     text-align: center;
     vertical-align: middle;
-    z-index: 10;
+    transition: background-size 200ms cubic-bezier(0.345, 0.115, 0.135, 1.42);
 }
 
-.review-pictures {
+#reviews #review-more-btn:hover {
+    background-size: 100% 100%;
+    animation: bounce 400ms;
+}
+
+#reviews .review-pictures {
     font-size: 16px;
+}
+
+#reviews .review-hide {
+    display: none;
 }

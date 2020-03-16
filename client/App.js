@@ -19,6 +19,11 @@ export default class Reviews extends React.Component {
         this.calculateStarRatingAvg = this.calculateStarRatingAvg.bind(this);
     }
 
+
+    componentDidMount() {
+        this.handleItemReviewTabClick();
+    }
+
     handleItemReviewTabClick() {
         let shopTab = document.getElementById('review-tabShop');
         shopTab.classList.remove('review-selectedTab');
@@ -40,13 +45,13 @@ export default class Reviews extends React.Component {
     }
 
     handleSeeMoreReviewsClick() {
-        let moreReviews = document.getElementsByClassName('review-more');
+        let moreReviews = document.getElementsByClassName('review-hide');
         for (let i = 0; i < moreReviews.length; i++) {
-          moreReviews[i].classList.remove('review-more');
+          moreReviews[i].classList.remove('review-hide');
         }
-        if (moreReviews.length < 20) {
+        if (moreReviews.length <= 20) {
             let moreReviewsBtn = document.getElementById('review-more-btn');
-            moreReviewsBtn.classList.add('review-more');
+            moreReviewsBtn.classList.add('review-hide');
         }
     }
 
