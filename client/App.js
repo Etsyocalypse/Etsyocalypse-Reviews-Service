@@ -46,10 +46,12 @@ export default class Reviews extends React.Component {
 
     handleSeeMoreReviewsClick() {
         let moreReviews = document.getElementsByClassName('review-hide');
-        for (let i = 0; i < moreReviews.length; i++) {
+        let moreReviewsCopy = Array.from(moreReviews).slice();
+        
+        for (let i = moreReviews.length - 1; i >= 0; i--) { 
           moreReviews[i].classList.remove('review-hide');
         }
-        if (moreReviews.length <= 20) {
+        if (moreReviewsCopy.length <= 20) {
             let moreReviewsBtn = document.getElementById('review-more-btn');
             moreReviewsBtn.classList.add('review-hide');
         }
