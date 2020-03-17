@@ -2,6 +2,7 @@ import React from 'react';
 import ReviewList from './ReviewList.js';
 import ShopStars from './ShopStars.js';
 import Dummydata from './Dummydata.js';
+import axios from 'axios';
 
 export default class Reviews extends React.Component {
     constructor(props) {
@@ -17,11 +18,13 @@ export default class Reviews extends React.Component {
         this.handleShopReviewTabClick = this.handleShopReviewTabClick.bind(this);
         this.handleSeeMoreReviewsClick = this.handleSeeMoreReviewsClick.bind(this);
         this.calculateStarRatingAvg = this.calculateStarRatingAvg.bind(this);
+        this.getAllItemReviews = this.getAllItemReviews.bind(this);
     }
 
 
     componentDidMount() {
         this.handleItemReviewTabClick();
+        this.getAllItemReviews();
     }
 
     handleItemReviewTabClick() {
@@ -75,6 +78,17 @@ export default class Reviews extends React.Component {
     // get shop rating
 
     // get item reviews
+    getAllItemReviews() {
+        axios.get('http://localhost:3000/itemReviews')
+        .then((response) => {
+            this.setState({
+                itemReviewData: response.data
+            })
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+    }
 
     render() {
         return (
