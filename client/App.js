@@ -1,7 +1,6 @@
 import React from 'react';
 import ReviewList from './ReviewList.js';
 import ShopStars from './ShopStars.js';
-import Dummydata from './Dummydata.js';
 import axios from 'axios';
 
 export default class Reviews extends React.Component {
@@ -10,8 +9,8 @@ export default class Reviews extends React.Component {
         this.state = {
             itemId: 0,
             shopId: 0,
-            itemReviewData: Dummydata.itemReviewData,
-            shopReviewData: Dummydata.shopReviewData,
+            itemReviewData: [],
+            shopReviewData: [],
             tab: 'item'
         }
         this.handleItemReviewTabClick = this.handleItemReviewTabClick.bind(this);
@@ -19,12 +18,14 @@ export default class Reviews extends React.Component {
         this.handleSeeMoreReviewsClick = this.handleSeeMoreReviewsClick.bind(this);
         this.calculateStarRatingAvg = this.calculateStarRatingAvg.bind(this);
         this.getAllItemReviews = this.getAllItemReviews.bind(this);
+        this.getAllShopReviews = this.getAllShopReviews.bind(this);
     }
 
 
     componentDidMount() {
         this.handleItemReviewTabClick();
         this.getAllItemReviews();
+        this.getAllShopReviews();
     }
 
     handleItemReviewTabClick() {
@@ -72,10 +73,17 @@ export default class Reviews extends React.Component {
     }
     
     // get shop reviews
-
-    // get number of shop reviews
-
-    // get shop rating
+    getAllShopReviews() {
+        axios.get('http://localhost:3000/shopReviews')
+        .then((response) => {
+            this.setState({
+                shopReviewData: response.data
+            });
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    }
 
     // get item reviews
     getAllItemReviews() {

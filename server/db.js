@@ -33,5 +33,15 @@ const getItemReviews = (callback) => {
   })
 }
 
-module.exports = {getItemReviews}
+const getShopReviews = (callback) => {
+  reviewModel.find({ type: 'shop' }, (err, result) => {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, result);
+    }
+  })
+}
+
+module.exports = {getItemReviews, getShopReviews}
 

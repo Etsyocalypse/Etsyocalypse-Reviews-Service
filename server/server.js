@@ -23,7 +23,15 @@ app.get('/itemReviews', (req, res) => {
 app.get('/moreItemReviews', (req, res) => {});
 
 // get request for shop review data (max of 4)
-app.get('/shopReviews', (req, res) => {});
+app.get('/shopReviews', (req, res) => {
+    db.getShopReviews((err, result) => {
+        if (err) {
+            res.status(404).send(err);
+        } else {
+            res.send(result);
+        }
+    })
+});
 
 // get request for shop review data (5 to 20)
 app.get('/moreShopReviews', (req, res) => {});
