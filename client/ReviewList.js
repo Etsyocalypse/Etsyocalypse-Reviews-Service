@@ -1,6 +1,7 @@
 import React from 'react';
 import ReviewStars from './ReviewStars.js';
 import SeeMoreReviews from './SeeMoreReviews.js';
+import Moment from 'react-moment';
 
 const ReviewList = (props) => {
     if (props.tab === 'item') {  
@@ -10,7 +11,7 @@ const ReviewList = (props) => {
                         <div data-id={rev.id} key={index} className={`review-container ${index > 3 ? "review-hide" : ""}`}>
                             <div className="review-topline">
                                 <div className="review-avatar"><i className="fas fa-user-circle"></i></div>
-                                <p><a href="">{rev.reviewer}</a>&nbsp;&nbsp;{rev.date}</p>
+                                <p><a href="">{rev.reviewer}</a>&nbsp;&nbsp;<Moment format="MMM, D YYYY">{rev.date}</Moment></p>
                             </div>
                             <div className="review-body">
                                 <div className="review-star-text">
@@ -30,7 +31,7 @@ const ReviewList = (props) => {
                 <div data-id={rev.id} key={index} className={`review-container ${index > 3 ? "review-hide" : ""}`}>
                     <div className="review-topline">
                         <div className="review-avatar"><i className="fas fa-user-circle"></i></div>
-                        <p><a href="">{rev.reviewer}</a>&nbsp;&nbsp;{rev.date}</p>
+                        <p><a href="">{rev.reviewer}</a>&nbsp;&nbsp;<Moment format="MMM, D YYYY">{rev.date}</Moment></p>
                     </div>
                     <div className="review-body">
                         <div className="review-star-text">
