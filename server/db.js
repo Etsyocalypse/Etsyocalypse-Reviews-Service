@@ -22,19 +22,8 @@ const reviewSchema = new Schema ({
   
 const reviewModel = mongoose.model('Review', reviewSchema);
 
-const getItemReviews = (callback) => {
-  reviewModel.find({ type: 'item' }, (err, result) => {
-    if (err) {
-      console.log(err)
-      callback(err, null);
-    } else {
-      callback(null, result);
-    }
-  })
-}
-
-const getShopReviews = (callback) => {
-  reviewModel.find({ type: 'shop' }, (err, result) => {
+const getItemReviewsById = (id, callback) => {
+  reviewModel.find({ productId: id, type: 'item' }, (err, result) => {
     if (err) {
       callback(err, null);
     } else {
@@ -43,5 +32,36 @@ const getShopReviews = (callback) => {
   })
 }
 
-module.exports = {getItemReviews, getShopReviews}
+const getShopReviewsById = (id, callback) => {
+  reviewModel.find({ shopId: id, type: 'shop' }, (err, result) => {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, result);
+    }
+  })
+}
+
+// const getAllShopReviews = (callback) => {
+//   reviewModel.find({ type: 'shop' }, (err, result) => {
+//     if (err) {
+//       callback(err, null);
+//     } else {
+//       callback(null, result);
+//     }
+//   })
+// }
+
+// const getAllItemReviews = (callback) => {
+//   reviewModel.find({ type: 'item' }, (err, result) => {
+//     if (err) {
+//       console.log(err)
+//       callback(err, null);
+//     } else {
+//       callback(null, result);
+//     }
+//   })
+// }
+
+module.exports = {getShopReviewsById, getItemReviewsById}
 

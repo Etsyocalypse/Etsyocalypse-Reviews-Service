@@ -7,7 +7,7 @@ export default class Reviews extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            itemId: 0,
+            itemId: 1,
             shopId: 0,
             itemReviewData: [],
             shopReviewData: [],
@@ -17,15 +17,19 @@ export default class Reviews extends React.Component {
         this.handleShopReviewTabClick = this.handleShopReviewTabClick.bind(this);
         this.handleSeeMoreReviewsClick = this.handleSeeMoreReviewsClick.bind(this);
         this.calculateStarRatingAvg = this.calculateStarRatingAvg.bind(this);
-        this.getAllItemReviews = this.getAllItemReviews.bind(this);
-        this.getAllShopReviews = this.getAllShopReviews.bind(this);
+        this.getItemReviewsById = this.getItemReviewsById.bind(this);
+        this.getShopReviewsById = this.getShopReviewsById.bind(this);
     }
-
 
     componentDidMount() {
         this.handleItemReviewTabClick();
-        this.getAllItemReviews();
-        this.getAllShopReviews();
+        this.getItemReviewsById();
+    }
+
+    handleNavigateTo(id) {
+        this.setState({
+            itemId: id
+        })
     }
 
     handleItemReviewTabClick() {
@@ -71,10 +75,14 @@ export default class Reviews extends React.Component {
         }
         return starTotal / reviewCount;
     }
-    
-    // get shop reviews
-    getAllShopReviews() {
-        axios.get('http://localhost:3000/shopReviews')
+
+    // get shop reviews by Id
+    getShopReviewsById() {
+        axios.get('http://localhost:3000/shopReviews:id', {
+            params: {
+                id: this.state.shopId
+            }
+        })
         .then((response) => {
             this.setState({
                 shopReviewData: response.data
@@ -85,18 +93,50 @@ export default class Reviews extends React.Component {
         });
     }
 
-    // get item reviews
-    getAllItemReviews() {
-        axios.get('http://localhost:3000/itemReviews')
+    // get item reviews by id
+    getItemReviewsById() {
+        axios.get('http://localhost:3000/itemReviews:id', {
+            params: {
+                id: this.state.itemId
+            }
+        })
         .then((response) => {
             this.setState({
+                shopId: response.data[0].shopId,
                 itemReviewData: response.data
-            })
+            });
+            this.getShopReviewsById()
         })
         .catch((error) => {
             console.log(error);
-        })
+        });
     }
+
+    // get item reviews
+    // getAllItemReviews() {
+    //     axios.get('http://localhost:3000/itemReviews')
+    //     .then((response) => {
+    //         this.setState({
+    //             itemReviewData: response.data
+    //         })
+    //     })
+    //     .catch((error) => {
+    //         console.log(error);
+    //     })
+    // }
+
+    // get shop reviews
+    // getAllShopReviews() {
+    //     axios.get('http://localhost:3000/shopReviews')
+    //     .then((response) => {
+    //         this.setState({
+    //             shopReviewData: response.data
+    //         });
+    //     })
+    //     .catch((error) => {
+    //         console.log(error);
+    //     });
+    // }
 
     render() {
         return (
