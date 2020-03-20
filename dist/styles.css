@@ -204,3 +204,9 @@ body {
 #reviews .review-hide {
     display: none;
 }
+
+#reviews .review-purchased-item {
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 18px;
+}

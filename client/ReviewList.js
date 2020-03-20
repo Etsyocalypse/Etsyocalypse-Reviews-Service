@@ -17,6 +17,8 @@ const ReviewList = (props) => {
                                 <div className="review-star-text">
                                     <div className="review-starRating"><ReviewStars star_rating={rev.star_rating}/></div>
                                     <div className="review-text">{rev.text}</div>
+                                    <p className="review-purchased-item">Purchased item:</p>
+                                    <div className="review-topline"><a href="">{rev.item}</a></div>
                                 </div>
                             </div>
                         </div>
@@ -37,6 +39,8 @@ const ReviewList = (props) => {
                         <div className="review-star-text">
                             <div className="review-starRating"><ReviewStars star_rating={rev.star_rating}/></div>
                             <div className="review-text">{rev.text}</div>
+                            <p className="review-purchased-item">Purchased item:</p>
+                            <div className="review-topline"><a href="">{rev.item}</a></div>
                         </div>
                     </div>
                 </div>
