@@ -18,7 +18,12 @@ const ReviewList = (props) => {
                                     <div className="review-starRating"><ReviewStars star_rating={rev.star_rating}/></div>
                                     <div className="review-text">{rev.text}</div>
                                     <p className="review-purchased-item">Purchased item:</p>
-                                    <div className="review-topline"><a href="">{rev.item}</a></div>
+                                    <div className="review-topline">
+                                      <div className="review-item-link">
+                                        <a href=""><img className="review-avatar review-images" src={rev.itemImageURL}></img></a>
+                                      </div>
+                                      <a className="review-item-link" href="">{rev.item}</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -40,7 +45,12 @@ const ReviewList = (props) => {
                             <div className="review-starRating"><ReviewStars star_rating={rev.star_rating}/></div>
                             <div className="review-text">{rev.text}</div>
                             <p className="review-purchased-item">Purchased item:</p>
-                            <div className="review-topline"><a href="">{rev.item}</a></div>
+                            <div className="review-topline">
+                                <div className="review-item-link">
+                                <a href=""><img className="review-avatar review-images" src={rev.itemImageURL}></img></a>
+                                </div>
+                                <a className="review-item-link" href="">{rev.item}</a>
+                            </div>
                         </div>
                     </div>
                 </div>

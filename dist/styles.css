@@ -210,3 +210,11 @@ body {
     font-size: 13px;
     line-height: 18px;
 }
+
+#reviews .review-item-link {
+    vertical-align: middle;
+}
+
+#reviews .review-images {
+    border-radius: 6px;
+}
