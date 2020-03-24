@@ -8,7 +8,7 @@ const ReviewList = (props) => {
         return (
             <>
             {props.itemReviewData.map((rev, index) => (
-                        <div data-id={rev.id} key={index} className={`review-container ${index > 3 ? "review-hide" : ""}`}>
+                        <div data-id={rev.id} key={index} className={`review-container ${index > 3 && props.showAllItemReviews === false ? "review-hide-item" : ""}`}>
                             <div className="review-topline">
                                 <div className="review-avatar"><i className="fas fa-user-circle" style={props.setRandomAvatarColor()}></i></div>
                                 <p><a className="review-link-txt" href="">{rev.reviewer}</a>&nbsp;&nbsp;<Moment format="MMM, D YYYY">{rev.date}</Moment></p>
@@ -28,14 +28,14 @@ const ReviewList = (props) => {
                             </div>
                         </div>
             ))}
-            <SeeMoreReviews handleSeeMoreReviewsClick={props.handleSeeMoreReviewsClick} itemReviewData={props.itemReviewData} tab={props.tab}/>
+            <SeeMoreReviews handleSeeMoreReviewsClick={props.handleSeeMoreReviewsClick} itemReviewData={props.itemReviewData} tab={props.tab} showAllItemReviews={props.showAllItemReviews}/>
             </>
         )
     } else {
         return (
             <>
             {props.shopReviewData.map((rev, index) => (
-                <div data-id={rev.id} key={index} className={`review-container ${index > 3 ? "review-hide" : ""}`}>
+                <div data-id={rev.id} key={index} className={`review-container ${index > 3 && props.showAllShopReviews === false ? "review-hide-shop" : ""}`}>
                     <div className="review-topline">
                         <div className="review-avatar"><i className="fas fa-user-circle" style={props.setRandomAvatarColor()}></i></div>
                         <p><a className="review-link-txt" href="">{rev.reviewer}</a>&nbsp;&nbsp;<Moment format="MMM, D YYYY">{rev.date}</Moment></p>
@@ -55,7 +55,7 @@ const ReviewList = (props) => {
                     </div>
                 </div>
             ))}
-            <SeeMoreReviews handleSeeMoreReviewsClick={props.handleSeeMoreReviewsClick} shopReviewData={props.shopReviewData} tab={props.tab}/>
+            <SeeMoreReviews handleSeeMoreReviewsClick={props.handleSeeMoreReviewsClick} shopReviewData={props.shopReviewData} tab={props.tab} showAllShopReviews={props.showAllShopReviews}/>
             </>
         )
     }

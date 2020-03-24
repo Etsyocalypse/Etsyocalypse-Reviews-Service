@@ -11,7 +11,9 @@ export default class Reviews extends React.Component {
             shopId: 0,
             itemReviewData: [],
             shopReviewData: [],
-            tab: 'item'
+            tab: 'item',
+            showAllItemReviews: false,
+            showAllShopReviews: false
         }
         this.handleItemReviewTabClick = this.handleItemReviewTabClick.bind(this);
         this.handleShopReviewTabClick = this.handleShopReviewTabClick.bind(this);
@@ -54,15 +56,35 @@ export default class Reviews extends React.Component {
     }
 
     handleSeeMoreReviewsClick() {
-        let moreReviews = document.getElementsByClassName('review-hide');
-        let moreReviewsCopy = Array.from(moreReviews).slice();
+        if (this.state.showAllItemReviews === false) {
+            let moreReviews = document.getElementsByClassName('review-hide-item');
+            let moreReviewsCopy = Array.from(moreReviews).slice();
 
-        for (let i = moreReviews.length - 1; i >= 0; i--) {
-          moreReviews[i].classList.remove('review-hide');
-        }
-        if (moreReviewsCopy.length <= 20) {
-            let moreReviewsBtn = document.getElementById('review-more-btn');
-            moreReviewsBtn.classList.add('review-hide');
+            for (let i = moreReviews.length - 1; i >= 0; i--) {
+                moreReviews[i].classList.remove('review-hide-item');
+            }
+
+            let moreReviewsBtn = document.getElementById('review-more-btn-item');
+            moreReviewsBtn.classList.add('review-hide-btn-item');
+
+            this.setState({
+                showAllItemReviews: true
+            });
+
+        } else if (this.state.showAllShopReviews === false) {
+            let moreReviews = document.getElementsByClassName('review-hide-shop');
+            let moreReviewsCopy = Array.from(moreReviews).slice();
+
+            for (let i = moreReviews.length - 1; i >= 0; i--) {
+                moreReviews[i].classList.remove('review-hide-shop');
+            }
+
+            let moreReviewsBtn = document.getElementById('review-more-btn-shop');
+            moreReviewsBtn.classList.add('review-hide-btn-shop');
+
+            this.setState({
+                showAllShopReviews: true
+            });
         }
     }
 
@@ -152,7 +174,7 @@ export default class Reviews extends React.Component {
                         <button id="review-tabShop" className="review-tabAnimate" onClick={this.handleShopReviewTabClick}>Reviews for this shop<span className="review-reviewNum">{this.state.shopReviewData.length}</span></button>
                     </div>
                 </div>
-                <div className="review-reviewList" ><ReviewList handleSeeMoreReviewsClick={this.handleSeeMoreReviewsClick} setRandomAvatarColor={this.setRandomAvatarColor} itemReviewData={this.state.itemReviewData} shopReviewData={this.state.shopReviewData} tab={this.state.tab}/></div>
+                <div className="review-reviewList" ><ReviewList handleSeeMoreReviewsClick={this.handleSeeMoreReviewsClick} setRandomAvatarColor={this.setRandomAvatarColor} itemReviewData={this.state.itemReviewData} shopReviewData={this.state.shopReviewData} tab={this.state.tab} showAllItemReviews={this.state.showAllItemReviews} showAllShopReviews={this.state.showAllShopReviews}/></div>
                 <div className="review-pictures">
                     <p>Photos from reviews</p>
                 </div>

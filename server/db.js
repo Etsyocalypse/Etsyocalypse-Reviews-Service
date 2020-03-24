@@ -23,7 +23,7 @@ const reviewSchema = new Schema ({
 const reviewModel = mongoose.model('Review', reviewSchema);
 
 const getItemReviewsById = (id, callback) => {
-  reviewModel.find({ productId: id, type: 'item' }, (err, result) => {
+  reviewModel.find({ productId: id, type: 'item' }, null, { sort: {date: -1} }, (err, result) => {
     if (err) {
       callback(err, null);
     } else {
@@ -33,7 +33,7 @@ const getItemReviewsById = (id, callback) => {
 }
 
 const getShopReviewsById = (id, callback) => {
-  reviewModel.find({ shopId: id, type: 'shop' }, (err, result) => {
+  reviewModel.find({ shopId: id, type: 'shop' }, null, { sort: {date: -1} }, (err, result) => {
     if (err) {
       callback(err, null);
     } else {
