@@ -19,6 +19,7 @@ export default class Reviews extends React.Component {
         this.calculateStarRatingAvg = this.calculateStarRatingAvg.bind(this);
         this.getItemReviewsById = this.getItemReviewsById.bind(this);
         this.getShopReviewsById = this.getShopReviewsById.bind(this);
+        this.setRandomAvatarColor = this.setRandomAvatarColor.bind(this);
     }
 
     componentDidMount() {
@@ -55,8 +56,8 @@ export default class Reviews extends React.Component {
     handleSeeMoreReviewsClick() {
         let moreReviews = document.getElementsByClassName('review-hide');
         let moreReviewsCopy = Array.from(moreReviews).slice();
-        
-        for (let i = moreReviews.length - 1; i >= 0; i--) { 
+
+        for (let i = moreReviews.length - 1; i >= 0; i--) {
           moreReviews[i].classList.remove('review-hide');
         }
         if (moreReviewsCopy.length <= 20) {
@@ -76,6 +77,25 @@ export default class Reviews extends React.Component {
         return starTotal / reviewCount;
     }
 
+    setRandomAvatarColor() {
+        let avatarColors = [{ color: "#D7E6F5", bgColor: "#3E4D5C" },
+                            { color: "#F5D9E3", bgColor: "#5C404A" },
+                            { color: "#D4E9D7", bgColor: "#3B503E" },
+                            { color: "#FDEBD2", bgColor: "#645239" },
+                            { color: "#F8EBE6", bgColor: "#c8643c" },
+                            { color: "#E6E1F0", bgColor: "#4D4857" }
+                        ];
+        const randomizer = avatarColors[Math.floor(Math.random() * avatarColors.length)];
+
+        let randomColor = randomizer.color;
+        let randomBGColor = randomizer.bgColor;
+
+        let avatarStyle = { color: randomColor, backgroundColor: randomBGColor, };
+
+        return avatarStyle;
+
+    }
+
     // get shop reviews by Id
     getShopReviewsById() {
         axios.get('http://localhost:3000/shopReviews:id', {
@@ -87,6 +107,7 @@ export default class Reviews extends React.Component {
             this.setState({
                 shopReviewData: response.data
             });
+            // this.setRandomAvatarColor();
         })
         .catch((error) => {
             console.log(error);
@@ -105,38 +126,12 @@ export default class Reviews extends React.Component {
                 shopId: response.data[0].shopId,
                 itemReviewData: response.data
             });
-            this.getShopReviewsById()
+            this.getShopReviewsById();
         })
         .catch((error) => {
             console.log(error);
         });
     }
-
-    // get item reviews
-    // getAllItemReviews() {
-    //     axios.get('http://localhost:3000/itemReviews')
-    //     .then((response) => {
-    //         this.setState({
-    //             itemReviewData: response.data
-    //         })
-    //     })
-    //     .catch((error) => {
-    //         console.log(error);
-    //     })
-    // }
-
-    // get shop reviews
-    // getAllShopReviews() {
-    //     axios.get('http://localhost:3000/shopReviews')
-    //     .then((response) => {
-    //         this.setState({
-    //             shopReviewData: response.data
-    //         });
-    //     })
-    //     .catch((error) => {
-    //         console.log(error);
-    //     });
-    // }
 
     render() {
         return (
@@ -157,7 +152,7 @@ export default class Reviews extends React.Component {
                         <button id="review-tabShop" className="review-tabAnimate" onClick={this.handleShopReviewTabClick}>Reviews for this shop<span className="review-reviewNum">{this.state.shopReviewData.length}</span></button>
                     </div>
                 </div>
-                <div className="review-reviewList" ><ReviewList handleSeeMoreReviewsClick={this.handleSeeMoreReviewsClick} itemReviewData={this.state.itemReviewData} shopReviewData={this.state.shopReviewData} tab={this.state.tab}/></div>
+                <div className="review-reviewList" ><ReviewList handleSeeMoreReviewsClick={this.handleSeeMoreReviewsClick} setRandomAvatarColor={this.setRandomAvatarColor} itemReviewData={this.state.itemReviewData} shopReviewData={this.state.shopReviewData} tab={this.state.tab}/></div>
                 <div className="review-pictures">
                     <p>Photos from reviews</p>
                 </div>

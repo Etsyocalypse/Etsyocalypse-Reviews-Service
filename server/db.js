@@ -17,9 +17,9 @@ const reviewSchema = new Schema ({
   text: String,
   imageURL: String,
   item: String,
-  itemImageURL: String,
+  itemImageURL: [String]
 }, { collection: 'reviews' });
-  
+
 const reviewModel = mongoose.model('Review', reviewSchema);
 
 const getItemReviewsById = (id, callback) => {
@@ -41,27 +41,6 @@ const getShopReviewsById = (id, callback) => {
     }
   })
 }
-
-// const getAllShopReviews = (callback) => {
-//   reviewModel.find({ type: 'shop' }, (err, result) => {
-//     if (err) {
-//       callback(err, null);
-//     } else {
-//       callback(null, result);
-//     }
-//   })
-// }
-
-// const getAllItemReviews = (callback) => {
-//   reviewModel.find({ type: 'item' }, (err, result) => {
-//     if (err) {
-//       console.log(err)
-//       callback(err, null);
-//     } else {
-//       callback(null, result);
-//     }
-//   })
-// }
 
 module.exports = {getShopReviewsById, getItemReviewsById}
 

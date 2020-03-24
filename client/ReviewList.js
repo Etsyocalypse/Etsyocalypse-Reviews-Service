@@ -4,14 +4,14 @@ import SeeMoreReviews from './SeeMoreReviews.js';
 import Moment from 'react-moment';
 
 const ReviewList = (props) => {
-    if (props.tab === 'item') {  
+    if (props.tab === 'item') {
         return (
             <>
             {props.itemReviewData.map((rev, index) => (
                         <div data-id={rev.id} key={index} className={`review-container ${index > 3 ? "review-hide" : ""}`}>
                             <div className="review-topline">
-                                <div className="review-avatar"><i className="fas fa-user-circle"></i></div>
-                                <p><a href="">{rev.reviewer}</a>&nbsp;&nbsp;<Moment format="MMM, D YYYY">{rev.date}</Moment></p>
+                                <div className="review-avatar"><i className="fas fa-user-circle" style={props.setRandomAvatarColor()}></i></div>
+                                <p><a className="review-link-txt" href="">{rev.reviewer}</a>&nbsp;&nbsp;<Moment format="MMM, D YYYY">{rev.date}</Moment></p>
                             </div>
                             <div className="review-body">
                                 <div className="review-star-text">
@@ -20,9 +20,9 @@ const ReviewList = (props) => {
                                     <p className="review-purchased-item">Purchased item:</p>
                                     <div className="review-topline">
                                       <div className="review-item-link">
-                                        <a href=""><img className="review-avatar review-images" src={rev.itemImageURL}></img></a>
+                                        <a href=""><img className="review-avatar review-images" src={rev.itemImageURL[0]}></img></a>
                                       </div>
-                                      <a className="review-item-link" href="">{rev.item}</a>
+                                      <a className="review-item-link review-link-txt" href="">{rev.item}</a>
                                     </div>
                                 </div>
                             </div>
@@ -37,8 +37,8 @@ const ReviewList = (props) => {
             {props.shopReviewData.map((rev, index) => (
                 <div data-id={rev.id} key={index} className={`review-container ${index > 3 ? "review-hide" : ""}`}>
                     <div className="review-topline">
-                        <div className="review-avatar"><i className="fas fa-user-circle"></i></div>
-                        <p><a href="">{rev.reviewer}</a>&nbsp;&nbsp;<Moment format="MMM, D YYYY">{rev.date}</Moment></p>
+                        <div className="review-avatar"><i className="fas fa-user-circle" style={props.setRandomAvatarColor()}></i></div>
+                        <p><a className="review-link-txt" href="">{rev.reviewer}</a>&nbsp;&nbsp;<Moment format="MMM, D YYYY">{rev.date}</Moment></p>
                     </div>
                     <div className="review-body">
                         <div className="review-star-text">
@@ -47,9 +47,9 @@ const ReviewList = (props) => {
                             <p className="review-purchased-item">Purchased item:</p>
                             <div className="review-topline">
                                 <div className="review-item-link">
-                                <a href=""><img className="review-avatar review-images" src={rev.itemImageURL}></img></a>
+                                <a href=""><img className="review-avatar review-images" src={rev.itemImageURL[0]}></img></a>
                                 </div>
-                                <a className="review-item-link" href="">{rev.item}</a>
+                                <a className="review-item-link review-link-txt" href="">{rev.item}</a>
                             </div>
                         </div>
                     </div>
@@ -59,7 +59,7 @@ const ReviewList = (props) => {
             </>
         )
     }
-  
+
 }
 
 export default ReviewList;

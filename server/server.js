@@ -30,26 +30,4 @@ app.get('/shopReviews:id', (req, res) => {
     })
 });
 
-// get request for product review data
-// app.get('/itemReviews', (req, res) => {
-//     db.getAllItemReviews((err, result) => {
-//         if (err) {
-//             res.status(404).send(err);
-//         } else {
-//             res.send(result);
-//         }
-//     })
-// });
-
-// get request for shop review data
-// app.get('/shopReviews', (req, res) => {
-//     db.getAllShopReviews((err, result) => {
-//         if (err) {
-//             res.status(404).send(err);
-//         } else {
-//             res.send(result);
-//         }
-//     })
-// });
-
 app.listen(port, () => console.log(`Reviews app listening on port ${port}!`));

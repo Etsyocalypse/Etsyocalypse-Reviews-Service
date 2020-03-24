@@ -81,8 +81,12 @@ body {
     float: left;
     width: 36px;
     height: 36px;
-    margin: 0 12px 0 0;
     font-size: 36px;
+    margin: 0 12px 0 0;
+}
+
+#reviews .fa-user-circle {
+    border-radius: 50%;
 }
 
 #reviews .review-starRating {
@@ -217,4 +221,13 @@ body {
 
 #reviews .review-images {
     border-radius: 6px;
+}
+
+#reviews .review-link-txt {
+    color: #595959;
+    transition: opacity 200ms ease-out;
+}
+
+#reviews .review-link-txt:hover {
+    opacity: .5;
 }
