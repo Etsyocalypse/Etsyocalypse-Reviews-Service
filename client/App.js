@@ -56,7 +56,7 @@ export default class Reviews extends React.Component {
     }
 
     handleSeeMoreReviewsClick() {
-        if (this.state.showAllItemReviews === false) {
+        if (this.state.showAllItemReviews === false && this.state.tab === 'item') {
             let moreReviews = document.getElementsByClassName('review-hide-item');
             let moreReviewsCopy = Array.from(moreReviews).slice();
 
@@ -71,7 +71,7 @@ export default class Reviews extends React.Component {
                 showAllItemReviews: true
             });
 
-        } else if (this.state.showAllShopReviews === false) {
+        } else if (this.state.showAllShopReviews === false && this.state.tab === 'shop') {
             let moreReviews = document.getElementsByClassName('review-hide-shop');
             let moreReviewsCopy = Array.from(moreReviews).slice();
 
