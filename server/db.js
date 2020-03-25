@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const db = mongoose.connection;
 const Schema = mongoose.Schema;
 
-mongoose.connect('mongodb://localhost:27017/reviews_db', {useNewUrlParser: true});
+mongoose.connect('mongodb+srv://etsyReviewsAdmin:etsyreviews@cluster0-dazka.mongodb.net/reviews_db?retryWrites=true&w=majority', {useNewUrlParser: true});
 
 db.on('error', console.error.bind(console, 'connection error:'));
 
