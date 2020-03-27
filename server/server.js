@@ -14,6 +14,7 @@ app.use(express.urlencoded({extended: false}));
 app.get('/itemReviews:id', (req, res) => {
     db.getItemReviewsById(req.query.id, (err, result) => {
         if (err) {
+            console.log(err)
             res.status(404).send(err);
         } else {
             res.send(result);
