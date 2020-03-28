@@ -2,6 +2,7 @@ import React from 'react';
 import ReviewList from './ReviewList.js';
 import ShopStars from './ShopStars.js';
 import axios from 'axios';
+import serverURL from './serverURL.js';
 
 export default class Reviews extends React.Component {
     constructor(props) {
@@ -15,6 +16,18 @@ export default class Reviews extends React.Component {
             showAllItemReviews: false,
             showAllShopReviews: false
         }
+
+        document.addEventListener('onNavigate', ({id}) => {
+            console.log("change pages to: ", id);
+            //change view based off of id
+            //setState to render new item
+            this.setState({
+                itemId: id
+            })
+            this.handleItemReviewTabClick();
+            this.getItemReviewsById();
+        });
+
         this.handleItemReviewTabClick = this.handleItemReviewTabClick.bind(this);
         this.handleShopReviewTabClick = this.handleShopReviewTabClick.bind(this);
         this.handleSeeMoreReviewsClick = this.handleSeeMoreReviewsClick.bind(this);
@@ -27,12 +40,6 @@ export default class Reviews extends React.Component {
     componentDidMount() {
         this.handleItemReviewTabClick();
         this.getItemReviewsById();
-    }
-
-    handleNavigateTo(id) {
-        this.setState({
-            itemId: id
-        })
     }
 
     handleItemReviewTabClick() {
@@ -120,7 +127,7 @@ export default class Reviews extends React.Component {
 
     // get shop reviews by Id
     getShopReviewsById() {
-        axios.get('http://localhost:3000/shopReviews:id', {
+        axios.get(`${serverURL.url}:3000/shopReviews:id`, {
             params: {
                 id: this.state.shopId
             }
@@ -138,7 +145,7 @@ export default class Reviews extends React.Component {
 
     // get item reviews by id
     getItemReviewsById() {
-        axios.get('http://localhost:3000/itemReviews:id', {
+        axios.get(`${serverURL.url}:3000/itemReviews:id`, {
             params: {
                 id: this.state.itemId
             }
