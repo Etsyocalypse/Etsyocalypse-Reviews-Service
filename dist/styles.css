@@ -3,7 +3,7 @@
     50% { box-shadow: 0px 0px 0px 2px #EAEAEA; }
 }
 
-@media only screen and (min-width: 900px) {
+/* @media only screen and (min-width: 900px) {
     #reviews {
         width: 60%;
         flex: none;
@@ -12,7 +12,7 @@
     #reviews .review-main {
         padding-left: 30px;
     }
-}
+} */
 
 #reviews body {
     font-family: "Graphik Webfont","Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
