@@ -127,7 +127,7 @@ export default class Reviews extends React.Component {
 
     // get shop reviews by Id
     getShopReviewsById() {
-        axios.get(`${serverURL.url}:3000/shopReviews:id`, {
+        axios.get(`${serverURL.url}/shopReviews:id`, {
             params: {
                 id: this.state.shopId
             }
@@ -145,7 +145,8 @@ export default class Reviews extends React.Component {
 
     // get item reviews by id
     getItemReviewsById() {
-        axios.get(`${serverURL.url}:3000/itemReviews:id`, {
+        console.log(serverURL.url);
+        axios.get(`${serverURL.url}/itemReviews:id`, {
             params: {
                 id: this.state.itemId
             }
