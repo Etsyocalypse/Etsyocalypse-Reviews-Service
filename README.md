@@ -33,14 +33,15 @@ I decided to use CSS rather than Bootstrap to style my component to get some add
     <td align="center">HTTP Client</td>
   </tr>
   <tr>
-    <td align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1280px-React-icon.svg.png" alt="React" title="React" width="80px"/></td>
-    <td align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1280px-Node.js_logo.svg.png" alt="Node.js" title="Node.js" width="60px"/></td>
-    <td align="center"><img src="https://seeklogo.net/wp-content/uploads/2015/09/amazon-web-services-logo.png" alt="AWS" title="AWS" width="60px"/></td>
-    <td align="center"><img src="https://user-images.githubusercontent.com/8939680/57233884-20344080-6fe5-11e9-8df3-0df1282e1574.png" alt="Axios" title="Axios" width="60px"/></td>
+    <td align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1280px-React-icon.svg.png" alt="React" title="React" width="80px"></td>
+    <td align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1280px-Node.js_logo.svg.png" alt="Node.js" title="Node.js" width="60px"></td>
+    <td align="center"><img src="https://seeklogo.net/wp-content/uploads/2015/09/amazon-web-services-logo.png" alt="AWS" title="AWS" width="60px"></td>
+    <td align="center"><img src="https://user-images.githubusercontent.com/8939680/57233884-20344080-6fe5-11e9-8df3-0df1282e1574.png" alt="Axios" title="Axios" width="60px"></td>
   </tr>
   <tr>
     <td align="center"></td>
-    <td align="center"><img src="https://buttercms.com/static/images/tech_banners/ExpressJS.png" alt="Express" title="Express" width="60px" height="45px"/></td>
+    <td align="center"><img src="https://buttercms.com/static/images/tech_banners/ExpressJS.png" alt="Express" title="Express" width="75px" height="20px"></td>
+    <td align="center"><img src="https://www.docker.com/sites/default/files/d8/styles/role_icon/public/2019-07/vertical-logo-monochromatic.png?itok=erja9lKc" alt="Docker" title="Docker" width="50px" height="45px"></td>
   </tr>
   <tr>
     <td align="center"></td>
