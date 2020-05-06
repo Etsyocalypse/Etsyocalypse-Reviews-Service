@@ -14,7 +14,7 @@ Etsyocalypse is a clone of the Etsy product page with a fun, unique twist by int
 - [Tech Stack](#tech-stack)
 
 # Functionality
-The reviews component by default renders item reviews based on an item ID that is passed from the Search component when a user searches for an item.  However, the component also has the capability to respond to user input by conditionally rendering either item reviews or shop reviews based on the tab selected by the user.  Additionally, if the number of reviews exceeds a certain number, the remaining reviews are hidden until the user clicks on the Show More Reviews button.
+The reviews component by default renders item reviews based on an item ID that is passed from the Search component when a user searches for an item.  However, the component also has the capability to respond to user input by conditionally rendering either item reviews or shop reviews based on the tab selected by the user.  Additionally, if the number of reviews exceeds a certain number, the remaining reviews are hidden until the user clicks on the See More Reviews button.
 
 # Workflow
 As a group, we whiteboarded the design of the page, divided it into main components, and assigned each team member one or two components depending on the projected level of effort.  We kept track of our progress using Trello and managed our codebase using GitHub.  
