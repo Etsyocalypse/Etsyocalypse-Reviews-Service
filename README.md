@@ -5,7 +5,7 @@ Etsyocalypse is a clone of the Etsy product page with a post-apocalyptic theme. 
 
 
 # ComponentDemo: Reviews
-![](https://gfycat.com/damagedspotteddrongo)
+![](https://thumbs.gfycat.com/DamagedSpottedDrongo-size_restricted.gif)
 
 # Table of Contents
 - [Goals](#goals)
